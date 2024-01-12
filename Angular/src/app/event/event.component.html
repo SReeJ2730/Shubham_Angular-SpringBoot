@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+    <style>
+       
+        .container {
+          background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding-top: 40px;
+            max-width: 400px;
+            margin: 0 auto;
+           
+        }
+        #im {
+            background-image: url('assets/Images/img56.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 742px;
+        }
+        #color {
+            color: red;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        #sign {
+            cursor: pointer;
+        }
+        .validation-message {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 12px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body id="im"><br><br><br><br><br>
+<div class="container">
+    <h2>Book with us!</h2>
+    <form #eventForm="ngForm" (ngSubmit)="registerEvent(eventForm.value)" novalidate>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <select name="eventName" ngModel class="form-control"  #eventName="ngModel"  required>
+              <option value="" disabled selected>Select Event</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Parties">Parties</option>
+              <option value="Corporate Event">Corporate Events</option>
+          </select>
+        </div>
+        <br/>
+        <div *ngIf="eventName.errors?.['required'] && eventName.touched">
+          <p id="color">Enter Event Name</p>
+      </div>
+
+  
+      <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input class="form-control" type="text" name="location" ngModel #location="ngModel"
+                 placeholder="Enter Event Location" required />
+      </div>
+      <br/>
+      <div *ngIf="location.errors?.['required'] && location.touched">
+        <p id="color">Enter Event location</p>
+    </div>
+
+     
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input class="form-control" type="date" name="date" ngModel #date="ngModel"
+               placeholder="Enter Event Date" required />
+    </div>
+    <br/>
+    <div *ngIf="date.errors?.['required'] && date.touched">
+      <p id="color">Enter Event date</p>
+  </div>
+  <div *ngIf=" date.errors?.['pattern'] && date.touched">
+      <p id="color">Invalid Event date</p>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input class="form-control" type="number" name="noMembers" ngModel #noMembers="ngModel"
+           placeholder="Enter Number of members" required  minlength="2" maxlength="3"  />
+     </div>   
+       <div *ngIf="noMembers.errors?.['required'] && noMembers.touched">
+          <p id="color">Enter Number of Members</p>
+        </div>
+      <div *ngIf="noMembers.errors?.['minlength'] && noMembers.touched">
+        <p id="color">Invalid Number of Members</p>
+      </div> 
+
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input class="form-control" type="text" name="emailId" ngModel #emailId="ngModel"
+        placeholder="Enter Email Id" required  />
+     </div>   
+    <div *ngIf="emailId.errors?.['required'] && emailId.touched">
+       <p id="color">Enter Email Id</p>
+     </div>
+   <div *ngIf="emailId.errors?.['pattern'] && emailId.touched">
+     <p id="color">Invalid Email Id</p>
+    </div>
+    <br/>
+
+    <p> <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-check"></i>Submit</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <button type="button" class="btn btn-primary" (click)="navigateToEvent(eventForm.value.eventName)">Go to Event</button></p>
+     <br/><br/>
+  </form>
+  </div>
+  </body>
+  

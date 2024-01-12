@@ -1,0 +1,10 @@
+<form>
+  <label for="services">Choose a service:</label>
+  <select id="services" name="services" [(ngModel)]="selectedService">
+    <option value="weddingos">Wedding</option>
+    <option value="parties">Parties</option>
+    <option value="corporate">Corporate Events</option>
+  </select>
+  <button (click)="navigateToService()">Go</button>
+</form>
+<router-outlet></router-outlet>

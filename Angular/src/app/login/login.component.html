@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('/assets/Images/imgg1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; 
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            flex-direction: column; 
+        }
+
+        #loginForm {
+            width: 350px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #color {
+            color: red;
+        }
+
+        #sign {
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        .input-group-addon {
+            background-color: #fff;
+        }
+
+        .google-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .logo {
+            max-width: 100px; 
+            height: auto;
+            /* filter: brightness(1.5); */
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="validateLogin(loginForm.value)" novalidate>
+        <div id="loginForm">
+            <img src="/assets/Images/logo4.png" alt="Your Logo" class="logo">
+            <h1>Login</h1>
+            <div>
+                <!-- Email and password input fields -->
+                <div *ngIf="emailId.errors?.['required'] && emailId.touched">
+                    <p id="color">Enter EmailId</p>
+                </div>
+                <div *ngIf=" emailId.errors?.['pattern'] && emailId.touched">
+                    <p id="color">Invalid emailId</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input class="form-control" type="text" name="emailId" ngModel #emailId="ngModel"
+                           placeholder="Enter Email-ID" required  />
+                </div>
+                <br/>
+                <div *ngIf="password.errors?.['required'] && password.touched">
+                    <p id="color">Enter Password</p>
+                </div>
+                <div *ngIf="password.errors?.['minlength'] && password.touched">
+                    <p id="color"> Password must contain at least one a-z A-Z 0-9 special characterss, and be at least 8 characters</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input class="form-control" type="password" name="password" ngModel #password="ngModel"
+                           placeholder="Enter Password" required  />
+                </div>
+                <br/>
+                <div>
+                    <p style="font-size: 20px; color: #000;">
+                      <button class="button button1" style="color: black;" (click)="refreshCaptcha()">
+                        <span class="fa ">&#xf021;</span>
+                      </button>
+                      <span style="background-color:white; padding: 5px; border-radius: 5px; display: inline-block; min-width: 210px; letter-spacing: 8px; font-family:Copperplate, Papyrus, fantasy">{{ captchaText }}</span>
+                    </p>
+                  </div>
+                  
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-keyboard"></i>
+                    </span>
+                    <input class="form-control" type="text" name="captcha" ngModel #captcha="ngModel"
+                      placeholder="Enter CAPTCHA" required />
+                  </div>
+                  <div *ngIf="captcha.errors?.['required'] && captcha.touched">
+                    <h6 style="color: red;">Please Enter CAPTCHA</h6>
+                  </div><br/>
+                <div>
+                    <div class="text-right" >
+                        <a routerLink="forgotpassword" id="forgotPassword">Forgot Password?</a>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                    <br/>
+                    <p>
+                        &nbsp;&nbsp; New User? &nbsp;&nbsp; <span id="sign" (click)="showSignUp()">signup</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

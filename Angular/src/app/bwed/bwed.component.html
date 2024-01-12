@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+    .container {
+        display: flex;
+    }
+
+</style>
+
+<section
+    style="background-repeat: no-repeat; background-position: center top; background-size: cover; height: 2800px; background-image: url(assets/Images/imgbg1.jpg);">
+    <br/><br/><br/><br/><br>
+    <h1 style="text-align: center; color: white; ">Wedding</h1><br><br>
+
+  
+    <div class="container">
+        <div>
+            <h2 style="color: white;">Catering</h2>
+            <br/>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let cat of catering" style="padding-left: 110px;">
+                    <div class="card" style="background-color: rgba(197, 230, 240, 0.8);">
+                      <img class="imagesize" [src]="'data:image/png;base64,' + cat.imgsrc" alt="Output"
+                      alt="Card image"  style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;"/>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ cat.name }}</h4>
+                            <p><b>cost:</b> ₹{{ cat.price }}/- per plate</p><br>
+                            <p class="card-text">{{ cat.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(cat)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br/>
+    <!-- Container for Decoration -->
+    <div class="container">
+        <div>
+            <h2 style="color: white;">Decoration</h2>
+            <br/>
+            <div class="row">
+                <!-- Second set of cards for Decoration -->
+                <div class="col-md-4" *ngFor="let dec of decoration" style="padding-left: 110px;">
+                    <div class="card" style="background-color: rgba(197, 230, 240, 0.8);">
+                        <img class="card-img-top"[src]="'data:image/png;base64,' + dec.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ dec.name }}</h4>
+                            <p><b>cost:</b> ₹{{ dec.price }}/-</p>
+                            <p class="card-text">{{ dec.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(dec)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br/>
+    <!-- Container for photography -->
+    <div class="container">
+        <div>
+            <h2 style="color: white;">Photography</h2>
+            <br/>
+            <div class="row">
+                <!-- First set of cards for photography -->
+                <div class="col-md-4" *ngFor="let pho of photography" style="padding-left: 110px;">
+                    <div class="card" style="background-color: rgba(197, 230, 240, 0.8);">
+                        <img class="card-img-top" [src]="'data:image/png;base64,' + pho.imgsrc" alt="Card image" 
+                        style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ pho.name }}</h4>
+                            <p><b>cost:</b> ₹{{ pho.price }}/-</p>
+                            <p class="card-text">{{ pho.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(pho)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br/>
+
+    <!-- Container for Makeup -->
+    <div class="container">
+        <div>
+            <h2 style="color: white;">Makeup</h2>
+            <br/>
+            <div class="row">
+                <!-- First set of cards for Makeup -->
+                <div class="col-md-4" *ngFor="let make of makeup" style="padding-left: 110px;">
+                    <div class="card" style="background-color: rgba(197, 230, 240, 0.8);">
+                        <img class="card-img-top"[src]="'data:image/png;base64,' + make.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ make.name }}</h4>
+                            <p><b>cost:</b> ₹{{ make.price }}/-</p>
+                            <p class="card-text">{{ make.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(make)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br/>
+
+    <!-- Container for Music -->
+    <div class="container">
+        <div>
+            <h2 style="color: white;">Music</h2>
+            <br/>
+            <div class="row">
+                <!-- First set of cards for Music -->
+                <div class="col-md-4" *ngFor="let mus of music" style="padding-left: 110px;">
+                    <div class="card" style="background-color: rgba(197, 230, 240, 0.8);">
+                        <img class="card-img-top" [src]="'data:image/png;base64,' + mus.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ mus.name }}</h4>
+                            <p><b>cost:</b> ₹{{ mus.price }}/-</p>
+                            <p class="card-text">{{ mus.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(mus)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+</section>

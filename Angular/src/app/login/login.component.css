@@ -1,0 +1,9 @@
+body {
+    background-image: url('src/assets/Images/event1.jpg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat; /* Adjust as needed */
+    background-position:center ;
+    height:500px;
+  }
+
+  

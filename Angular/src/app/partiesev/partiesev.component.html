@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+    .container {
+        display: flex;
+    }
+
+</style>
+
+<section
+    style="background-repeat: no-repeat; background-position: center top; background-size: cover; height: 3200px; background-image: url(assets/Images/imgp.jpg);">
+    <br/><br/><br/><br/>
+    <h1 style="text-align: center;">Parties</h1><br><br>
+
+    <!-- Container for Catering -->
+    <div class="container">
+        <div>
+            <h2>Catering</h2>
+            <br/>
+            <div class="row">
+                <!-- First set of cards for Catering -->
+                <div class="col-md-4 mb-3" *ngFor="let cat of catering" style="padding-left: 10px;">
+                    <div class="card">
+                        <img class="card-img-top" [src]="cat.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ cat.name }}</h4>
+                            <p><b>cost:</b> ₹{{ cat.price }}/-</p>
+                            <p class="card-text">{{ cat.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Decoration -->
+    <div class="container">
+        <div>
+            <h2>Decoration</h2>
+            <br/>
+            <div class="row">
+                <!-- Second set of cards for Decoration -->
+                <div class="col-md-4 mb-3" *ngFor="let dec of decoration" style="padding-left: 10px;">
+                    <div class="card">
+                        <img class="card-img-top" [src]="dec.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ dec.name }}</h4>
+                            <p><b>cost:</b> ₹{{ dec.price }}/-</p>
+                            <p class="card-text">{{ dec.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      <div>
+          <h2>Photography</h2>
+          <br/>
+          <div class="row">
+              <!-- Second set of cards for Decoration -->
+              <div class="col-md-4 mb-3" *ngFor="let pho of photography" style="padding-left: 10px;">
+                  <div class="card">
+                      <img class="card-img-top" [src]="pho.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                      <div class="card-body">
+                          <h4 class="card-title">{{ pho.name }}</h4>
+                          <p><b>cost:</b> ₹{{ pho.price }}/-</p>
+                          <p class="card-text">{{ pho.description }}</p>
+                          <p align="right">
+                              <button class="btn btn-primary">Book</button>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+    <div>
+        <h2>Makeup</h2>
+        <br/>
+        <div class="row">
+            <!-- Second set of cards for Decoration -->
+            <div class="col-md-4 mb-3" *ngFor="let mak of makeup" style="padding-left: 10px;">
+                <div class="card">
+                    <img class="card-img-top" [src]="mak.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ mak.name }}</h4>
+                        <p><b>cost:</b> ₹{{ mak.price }}/-</p>
+                        <p class="card-text">{{ mak.description }}</p>
+                        <p align="right">
+                            <button class="btn btn-primary">Book</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+  <div>s
+      <h2>Music</h2>
+      <br/>
+      <div class="row">
+          <!-- Second set of cards for Decoration -->
+          <div class="col-md-4 mb-3" *ngFor="let mus of music" style="padding-left: 10px;">
+              <div class="card">
+                  <img class="card-img-top" [src]="mus.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                  <div class="card-body">
+                      <h4 class="card-title">{{ mus.name }}</h4>
+                      <p><b>cost:</b> ₹{{mus.price }}/-</p>
+                      <p class="card-text">{{ mus.description }}</p>
+                      <p align="right">
+                          <button class="btn btn-primary">Book</button>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</section>

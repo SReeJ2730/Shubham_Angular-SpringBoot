@@ -1,0 +1,31 @@
+<h1 align="center">Items in Booking</h1>
+
+<div class="container" style="margin-top: 40px;">
+<table class="table table-hover table-striped table-bordered">
+
+    <thead>
+        <tr align="center">
+            <th class="bg-info text-white">Booked</th>
+            <th class="bg-info text-white">Event Name</th>
+            <th class="bg-info text-white">Event category</th>
+            <th class="bg-info text-white">Price</th>
+            <th class="bg-info text-white">Cancel</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let product of bookItems" align="center">
+            <td><img class="imagesize" [src]="'data:image/png;base64,' + product.imgsrc" alt="Product Image" style="width: 200px; height: 200px; padding: 10px 10px 10px 20px;"></td>
+            <td>{{eventName}}</td>
+            <td>{{product.name  }}</td>
+            <td >{{product.price}}</td>
+            <td><button (click)="deleteCartItem(product)"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+        <tr>
+        <td rowspan="18">Total</td>
+            <td rowspan="4">{{calculateTotalCost()}}</td>
+            </tr>
+    </tbody>
+</table>
+<p align="text-right"> <button class="btn btn-primary" ><i class="glyphicon glyphicon-check"></i>Book</button>
+</div>

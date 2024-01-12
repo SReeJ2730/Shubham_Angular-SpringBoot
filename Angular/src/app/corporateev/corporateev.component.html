@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+    .container {
+        display: flex;
+    }
+
+</style>
+
+<section
+    style="background-repeat: no-repeat; background-position: center top; background-size: cover; height: 1800px; background-image: url(assets/Images/imgbg2.jpg);">
+    <br/><br/><br/><br/>
+    <h1 style="text-align: center; ">CorporateEvents</h1><br><br>
+
+    <div class="container">
+        <div>
+            <h2>Catering</h2>
+            <br/>
+            <div class="row">
+                
+                <div class="col-md-4" *ngFor="let cat of catering" style="padding-left: 110px;">
+                    <div class="card">
+                      <img class="imagesize" [src]="'data:image/png;base64,' + cat.imgsrc" alt="Output"
+                      alt="Card image"  style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;"/>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ cat.name }}</h4>
+                            <p><b>cost:</b> ₹{{ cat.price }}/- per plate</p><br>
+                            <p class="card-text">{{ cat.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(cat)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br/>
+    
+    <div class="container">
+        <div>
+            <h2 >Decoration</h2>
+            <br/>
+            <div class="row">
+              
+                <div class="col-md-4" *ngFor="let dec of decoration" style="padding-left: 110px;">
+                    <div class="card">
+                        <img class="card-img-top"[src]="'data:image/png;base64,' + dec.imgsrc" alt="Card image" style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ dec.name }}</h4>
+                            <p><b>cost:</b> ₹{{ dec.price }}/-</p>
+                            <p class="card-text">{{ dec.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(dec)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br/>
+   
+    <div class="container">
+        <div>
+            <h2>Drinks</h2>
+            <br/>
+            <div class="row">
+               
+                <div class="col-md-4" *ngFor="let drink of drinks" style="padding-left: 110px;">
+                    <div class="card">
+                        <img class="card-img-top" [src]="'data:image/png;base64,' + drink.imgsrc" alt="Card image" 
+                        style="width: 280px; height: 200px; padding: 20px 20px 20px 30px;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ drink.name }}</h4>
+                            <p><b>cost:</b> ₹{{drink.price }}/-</p>
+                            <p class="card-text">{{drink.description }}</p>
+                            <p align="right">
+                                <button class="btn btn-primary" (click)="addToCart(drink)">Book</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br/>
+
+  
+  
+</section>
